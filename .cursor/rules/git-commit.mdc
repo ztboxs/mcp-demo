@@ -1,0 +1,147 @@
+---
+alwaysApply: false
+description: Git Commit 提交规范，遵循 Conventional Commits 标准
+---
+# Git Commit 规范
+
+项目使用 Conventional Commits 规范，配合 commitlint 进行提交检查。
+配置文件: [commitlint.config.js](mdc:commitlint.config.js)
+
+## Commit 格式
+
+```
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+### 必填部分
+- **type**: 提交类型（必填）
+- **subject**: 简短描述（必填）
+
+### 可选部分
+- **scope**: 影响范围
+- **body**: 详细描述
+- **footer**: 关联 issue 或重大变更
+
+## Type 类型说明
+
+| 类型 | 描述 | 示例 |
+|------|------|------|
+| `feat` | ✨ 新功能 | `feat(voice): 添加韩文语音支持` |
+| `fix` | 🐛 Bug 修复 | `fix(home): 修复音量滑块无响应问题` |
+| `docs` | 📝 文档更新 | `docs: 更新 README 安装说明` |
+| `style` | 💄 代码格式（不影响功能） | `style: 格式化代码，移除多余空格` |
+| `refactor` | ♻️ 重构（非新功能/非修复） | `refactor(api): 重构请求封装逻辑` |
+| `perf` | ⚡ 性能优化 | `perf(list): 优化列表渲染性能` |
+| `test` | ✅ 测试相关 | `test(utils): 添加工具函数单元测试` |
+| `build` | 📦 构建/依赖相关 | `build: 升级 ray-js 版本` |
+| `ci` | 🎡 CI 配置 | `ci: 更新 GitHub Actions 配置` |
+| `chore` | 🔧 其他杂项 | `chore: 更新 .gitignore` |
+| `revert` | ⏪ 回滚提交 | `revert: 回滚 feat(voice) 提交` |
+
+## Scope 范围（推荐）
+
+根据项目模块定义：
+- `home` - 首页模块
+- `role` - 角色相关
+- `voice` - 音色/语音
+- `chat` - 聊天/对话
+- `memory` - 记忆功能
+- `api` - API 接口
+- `redux` - 状态管理
+- `i18n` - 国际化
+- `components` - 公共组件
+- `utils` - 工具函数
+- `dp` - 设备 DP 点
+- 其他杂项
+
+## Subject 描述规范
+
+1. **使用中文或英文**（项目建议使用中文）
+2. **首字母不需要大写**
+3. **结尾不加句号**
+4. **简洁明了**，不超过 50 字符
+5. **使用祈使句**，如"修复"而不是"修复了"
+
+## 示例
+
+### 简单提交
+```bash
+git commit -m "feat(voice): 添加韩文音色支持"
+git commit -m "fix(home): 修复设备离线状态判断错误"
+git commit -m "docs: 更新国际化文档"
+```
+
+### 带 Body 的提交
+```bash
+git commit -m "refactor(api): 重构云端 API 请求封装
+
+- 统一错误处理逻辑
+- 添加请求超时配置
+- 优化响应数据解析"
+```
+
+### 关联 Issue
+```bash
+git commit -m "fix(chat): 修复历史记录加载失败
+
+修复了在网络不稳定时历史记录无法加载的问题。
+
+Closes #123"
+```
+
+### 重大变更（Breaking Change）
+```bash
+git commit -m "feat(api)!: 更新 API 响应格式
+
+BREAKING CHANGE: API 响应结构变更，需要更新所有调用方"
+```
+
+## 命令行快捷提交
+
+```bash
+# 新功能
+git commit -m "feat: 功能描述"
+
+# Bug 修复
+git commit -m "fix: 修复描述"
+
+# 文档更新
+git commit -m "docs: 文档描述"
+
+# 代码格式化
+git commit -m "style: 格式化描述"
+
+# 重构
+git commit -m "refactor: 重构描述"
+```
+
+## 不规范提交示例 ❌
+
+```bash
+# 错误：没有 type
+git commit -m "修复了一个 bug"
+
+# 错误：type 不正确
+git commit -m "update: 更新代码"
+
+# 错误：subject 为空
+git commit -m "feat:"
+
+# 错误：描述过于笼统
+git commit -m "fix: 修复问题"
+```
+
+## 规范提交示例 ✅
+
+```bash
+# 正确：清晰的 type 和描述
+git commit -m "feat(role): 添加角色编辑页面"
+git commit -m "fix(voice): 修复音色预览播放失败问题"
+git commit -m "refactor(redux): 优化 agentListSlice 状态更新逻辑"
+git commit -m "style: 统一代码缩进为 2 空格"
+git commit -m "chore: 更新依赖版本"
+```

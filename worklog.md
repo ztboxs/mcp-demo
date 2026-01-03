@@ -12,7 +12,9 @@
 - 添加烟雾测试脚本：`tests/smoke.py`（生成样例图，调用单图/批量接口，验证输出）。
 - 添加 Demo Server：`src/server.py`（FastAPI，暴露 health / resources/images / tools/compress_image / tools/compress_batch；支持自定义 allowlist 与目标体积）。
 - 修复 allowlist 解析的符号链接问题，烟雾测试已通过（`PYTHONPATH=. python -m tests.smoke`）。
+- 实现 MCP 协议服务器：`src/mcp_server.py`（stdio JSON-RPC，暴露 compress_image / compress_batch 工具与 images://list 资源）。
+- 添加 README.md 使用说明与 Cursor MCP 配置示例。
 
 ## 结论
 
-- 需求、方案、任务清单已形成，等待确认后可进入开发阶段。下一步：按任务清单初始化项目与核心压缩逻辑。
+- 项目已完善，可直接在 Cursor 中配置使用。配置方式见 README.md。

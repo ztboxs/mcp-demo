@@ -9,6 +9,7 @@
 - 初始化项目结构与依赖：创建 `src/`，添加 `pyproject.toml` 与 `requirements.txt`（Pillow、pydantic）。
 - 实现核心压缩逻辑：`src/compress.py`，质量递减 + 按比例缩放，去 EXIF，默认 JPEG，最佳努力返回 ok/partial。
 - 实现工具与资源函数：`compress_image_tool`、`compress_batch_tool`、`list_images_resource`（含路径 allowlist、格式校验、错误/partial 处理）。
+- 添加烟雾测试脚本：`tests/smoke.py`（生成样例图，调用单图/批量接口，验证输出）。
 
 ## 结论
 

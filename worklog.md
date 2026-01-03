@@ -10,6 +10,8 @@
 - 实现核心压缩逻辑：`src/compress.py`，质量递减 + 按比例缩放，去 EXIF，默认 JPEG，最佳努力返回 ok/partial。
 - 实现工具与资源函数：`compress_image_tool`、`compress_batch_tool`、`list_images_resource`（含路径 allowlist、格式校验、错误/partial 处理）。
 - 添加烟雾测试脚本：`tests/smoke.py`（生成样例图，调用单图/批量接口，验证输出）。
+- 添加 Demo Server：`src/server.py`（FastAPI，暴露 health / resources/images / tools/compress_image / tools/compress_batch；支持自定义 allowlist 与目标体积）。
+- 修复 allowlist 解析的符号链接问题，烟雾测试已通过（`PYTHONPATH=. python -m tests.smoke`）。
 
 ## 结论
 

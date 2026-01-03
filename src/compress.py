@@ -145,7 +145,11 @@ def compress_image_file(
 
 def _is_within_allowlist(path: Path, allowlist: Iterable[Path]) -> bool:
     resolved = path.resolve()
-    return any(resolved == base or base in resolved.parents for base in allowlist)
+    for base in allowlist:
+        base_resolved = Path(base).expanduser().resolve()
+        if resolved == base_resolved or base_resolved in resolved.parents:
+            return True
+    return False
 
 
 def compress_image_tool(

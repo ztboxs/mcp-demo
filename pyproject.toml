@@ -9,7 +9,9 @@ description = "MCP image compression server (Python, Pillow)"
 requires-python = ">=3.11"
 dependencies = [
   "pillow>=10.2,<11",
-  "pydantic>=2.6,<3"
+  "pydantic>=2.6,<3",
+  "fastapi>=0.110,<1",
+  "uvicorn>=0.23,<1"
 ]
 
 [project.optional-dependencies]

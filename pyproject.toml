@@ -1,0 +1,18 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mcp-img-compress"
+version = "0.1.0"
+description = "MCP image compression server (Python, Pillow)"
+requires-python = ">=3.11"
+dependencies = [
+  "pillow>=10.2,<11",
+  "pydantic>=2.6,<3"
+]
+
+[project.optional-dependencies]
+dev = []
+
+
